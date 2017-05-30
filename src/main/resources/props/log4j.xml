@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" strict="true">
+    <!-- Define custom levels before using them for filtering below. -->
+    <CustomLevels>
+        <CustomLevel name="VERIFY" intLevel="190"/>
+    </CustomLevels>
+    <Appenders>
+        <RollingFile name="RollingFile" fileName="/home/user/Documents/food_review.log"
+                     filePattern="/home/user/Documents/food_review.log">
+            <PatternLayout>
+                <pattern>%d{MM-dd-yyyy HH:mm:ss,SSS}|%p|%m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="180"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="RollingFile" level="info"/>
+        </Root>
+    </Loggers>
+</Configuration>
